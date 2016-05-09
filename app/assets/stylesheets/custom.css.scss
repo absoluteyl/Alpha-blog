@@ -21,8 +21,9 @@ $navbar-default-bg: #45444F;
 }
 
 .jumbotron {
-  background-image: asset-url('absoluteEYL_headerOnly.png');
-  background-size: 100%;
+  background-image: asset-url('Cover_20141124.JPG');
+  background-size: cover;
+  height: 550px;
 }
 
 .jumbotron h1 {
@@ -31,11 +32,6 @@ $navbar-default-bg: #45444F;
   font-weight:bold;
   margin-bottom: 30px;
   letter-spacing: -1px;
-}
-
-.eyl {
-  color: #FFD900;
-  font-weight:bold;
 }
 
 .btn-xlarge {
