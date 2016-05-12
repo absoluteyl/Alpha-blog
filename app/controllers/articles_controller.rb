@@ -2,13 +2,20 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
   
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
+  end
+  
+  def new
+    @article = Article.new
+  end
+  
+  def edit
   end
   
   def create
     #render plain: params[:article].inspect
     @article = Article.new(article_params)
-    @article.user = User.first   #hard code user id temporary
+    @article.user = User.find(11)   #hard code user id temporary
     if @article.save
       flash[:success] = "Article was successfully created"
       redirect_to article_path(@article)
@@ -18,12 +25,7 @@ class ArticlesController < ApplicationController
     end
   end
   
-  def new
-    @article = Article.new
-  end
   
-  def edit
-  end
   
   def update
     if @article.update(article_params)
