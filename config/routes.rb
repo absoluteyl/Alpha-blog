@@ -10,11 +10,17 @@ root 'pages#home'
 
 #get 'pages/about', to:  'pages#about'
 get 'about', to: 'pages#about'
+
+resources :articles
+
 get 'signup', to: 'users#new'
 resources :users, except: [:new] #since we created users#new manually, we need to exclude it
 #post 'users', to: 'users#create'  #we don't need this if we create "resources" route
 
-resources :articles
+get 'login', to: 'sessions#new'
+post 'login', to: 'sessions#create'
+delete 'logout', to: 'sessions#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
